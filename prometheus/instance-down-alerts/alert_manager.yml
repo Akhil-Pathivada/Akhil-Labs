@@ -1,0 +1,21 @@
+global:
+ resolve_timeout: 1m
+ slack_api_url: 'https://hooks.slack.com/services/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'
+
+route:
+        # group_by: ['prometheus_instances_down']
+        receiver: 'slack-email-notifications'
+
+receivers:
+        - name: 'slack-email-notifications'
+          slack_configs:
+          - channel: '#prometheusslackalerts'
+            send_resolved: true
+          email_configs:
+          - to: akhil.codec@gmail.com
+            from: akhil.codec@gmail.com
+            smarthost: smtp.gmail.com:587
+            auth_username: "akhil.codec@gmail.com"
+            auth_identity: "akhil.codec@gmail.com"
+            auth_password: "areyigkphkkalngn" 
+            send_resolved: true
