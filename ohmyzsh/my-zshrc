@@ -1,0 +1,41 @@
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/akpathivada/.oh-my-zsh"
+
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+plugins=(
+  git
+  bundler
+  dotenv
+  osx
+  rake
+  zsh-autosuggestions
+  last-working-dir
+  copyfile
+  copydir
+  colorize
+  copybuffer
+)
+
+# some aliases
+alias sshdir="cd ~/.ssh"
+alias runp="lsof -i "
+alias md="mkdir "
+alias ..='cd ..'
+alias ...='cd ../..'
+alias rm='move_to_trash'
+
+
+source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# key bindings
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
+
+# function to move to trash
+move_to_trash () {
+    mv "$@" ~/.trash
+}
+
